@@ -6,5 +6,9 @@ public class President extends HommePolitique{
 		super(nom, prenom);
 		// TODO Auto-generated constructor stub
 	}
+	
+	public President(HommePolitique hm) {
+		super(hm);
+	}
 
 }

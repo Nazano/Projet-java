@@ -1,8 +1,23 @@
 package gouv;
 
-public class Ministre extends HommePolitique{
+import java.text.SimpleDateFormat;
+
+import gestion.Event;
+import gestion.Time;
+
+public class Ministre extends HommePolitique implements Time{
 	
-	public Ministre(String nom, String prenom) {
+	private Ministeres ministeres;
 	
+	
+	public Ministre(String nom, String prenom, Ministeres ministere) {
+		super(nom, prenom);
+		this.ministeres = ministere;
+	}
+	
+	
+	public Ministre(HommePolitique hm, Ministeres ministere) {
+		super(hm);
+		this.ministeres = ministere;
 	}
 }

@@ -14,7 +14,6 @@ public class Event {
 		try {
 			this.date = format.parse(date);
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		this.description = description;
