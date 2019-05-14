@@ -1,8 +1,5 @@
 package gouv;
 
-import java.text.SimpleDateFormat;
-
-import gestion.Event;
 import gestion.Time;
 
 public class Ministre extends HommePolitique implements Time{

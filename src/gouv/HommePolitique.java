@@ -1,7 +1,5 @@
 package gouv;
 
-import java.util.List;
-
 import gestion.Event;
 import gestion.Historique;
 
