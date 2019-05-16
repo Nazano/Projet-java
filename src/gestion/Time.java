@@ -9,17 +9,21 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+/**
+ * Gère l'écoulement du temps et la date
+ * @author ajulien
+ *
+ */
 public interface Time {
-
-	final static Date START_DATE = new Date(1945, 01, 01);
-	final static SimpleDateFormat FORMAT = new SimpleDateFormat("dd-MM-yyyy");
+	
+	final static SimpleDateFormat FORMAT = new SimpleDateFormat("dd/MM/yyyy");
 	
 	
 	/**
 	 * Récupère la date à partir du fichier local
 	 * @return La date lue dans le fichier
 	 */
-	default Date getLocalDate(){
+	default Date getDate(){
 		Date d = null;		
 		try {
 			String data;
@@ -37,7 +41,7 @@ public interface Time {
 	 * Augmente la date de 1 jour
 	 */
 	default void upadteDate() {
-		Date d = getLocalDate();		
+		Date d = getDate();		
 		Calendar c = Calendar.getInstance();
 		
 		try {
@@ -69,7 +73,7 @@ public interface Time {
 	
 	/**
 	 * Changer la date à partir d'un string
-	 * @param str_date
+	 * @param str date
 	 */
 	default void setDate(String str_date) {
 		try {
