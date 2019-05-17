@@ -22,6 +22,11 @@ import gouv.President;
 import gouv.Ministre;
 import gouv.PremierMinistre;
 
+/**
+ * Class principale de la simulation elle regroupe toutes les fonctions d'affichage
+ * @author ajulien
+ *
+ */
 public class ViePolitique implements Time{
 	
 	private	static Date 							currentDate;
@@ -42,6 +47,11 @@ public class ViePolitique implements Time{
 		findHPs(); //Charge tous les hommes politiques
 	}
 	
+	/**
+	 * Démarre la simulation 
+	 * @throws ParseException
+	 * @throws IOException
+	 */
 	public void startSimulation() throws ParseException, IOException {
 		Scanner scanner = new Scanner(System.in);
 		affichierMenuDemarrage();
@@ -58,6 +68,11 @@ public class ViePolitique implements Time{
 		}
 	}
 	
+	/**
+	 * Mode de fonction en jour par jour. Entrée pour avancer d'un jouer et "quit" pour quitter
+	 * @throws ParseException
+	 * @throws IOException
+	 */
 	private void jourParJour() throws ParseException, IOException {
 		String input_quitter, input_options;
 		
@@ -151,7 +166,7 @@ public class ViePolitique implements Time{
 		sb.append("\t2. Saut temporel\n");
 		sb.append("\t3. Voir le président\n");
 		sb.append("\t4. Voir le gouvernement\n");
-		sb.append("\t5. Voir nomination pour une personne donnée");
+		sb.append("\t5. Voir nomination pour une personne donnée\n");
 		sb.append("\"s\" pour quitter le menu et avancer de jour");
 		
 		System.out.println(sb.toString());
@@ -187,7 +202,7 @@ public class ViePolitique implements Time{
 	 * @throws IOException 
 	 * @throws ParseException 
 	 */
-	public void initGouv(Date date) throws IOException, ParseException {
+	private void initGouv(Date date) throws IOException, ParseException {
 		List<String[] > data = CsvUtils.readCSV(path_pm);
 		Date dateNomi, dateRenvoi;
 		
@@ -219,7 +234,7 @@ public class ViePolitique implements Time{
 	 * @throws IOException
 	 * @throws FileNotFoundException
 	 */
-	public void findHPs() throws IOException, FileNotFoundException {
+	private void findHPs() throws IOException, FileNotFoundException {
 		List<String[] > data = CsvUtils.readCSV(path_hp);
 		for (String[] line : data) {
 			Integer id = Integer.valueOf(line[0]);
@@ -265,7 +280,7 @@ public class ViePolitique implements Time{
 	 * @throws IOException 
 	 * @throws ParseException 
 	 */
-	public void trouverPresident(Date date) throws IOException, ParseException {
+	private void trouverPresident(Date date) throws IOException, ParseException {
 		List<String[]> data = CsvUtils.readCSV(path_presidents);
 		Date dateNomi, dateRenvoi;
 		
