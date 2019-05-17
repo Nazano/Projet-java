@@ -30,18 +30,26 @@ import gouv.PremierMinistre;
 public class ViePolitique implements Time{
 	
 	private	static Date 							currentDate;
-	private static String 						path_hp, path_ministres, path_pm, path_presidents; //Chemins d'accès vers les différentes données
+	private static String 							path_hp, path_ministres, path_pm, path_presidents; //Chemins d'accès vers les différentes données
 	private static Map<Integer, HommePolitique> 	listeHommePolitiques = new HashMap<Integer, HommePolitique>(); //Liste de tous les hommes politiques de la simulation
-	private static Set<Ministeres> 				listeMinistere = new HashSet<Ministeres>(); 
+	private static Set<Ministeres> 					listeMinistere = new HashSet<Ministeres>(); 
 	private static Gouvernement 					gouvernement;
-	private static HommePolitique 				president;
+	private static HommePolitique 					president;
 	
-	private 		   Scanner 						keyboard = new Scanner(System.in);
+	private 	   Scanner 							keyboard = new Scanner(System.in);
 	
-	
-	public ViePolitique(String path_hp, String path_ministres, String path_pm, String path_president) throws FileNotFoundException, IOException {
+	/**
+	 * 
+	 * @param path_hp Chemin vers l'ensemble des hommes politiques
+	 * @param path_fonctions Chemin vers l'ensemble des nomination 
+	 * @param path_pm Chemin pour vers l'ensemble des premiers ministres
+	 * @param path_president Chemin vers l'ensemble des présidents
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 */
+	public ViePolitique(String path_hp, String path_fonctions, String path_pm, String path_president) throws FileNotFoundException, IOException {
 		ViePolitique.path_hp =  path_hp;
-		ViePolitique.path_ministres = path_ministres;
+		ViePolitique.path_ministres = path_fonctions;
 		ViePolitique.path_pm = path_pm;
 		ViePolitique.path_presidents = path_president;
 		findHPs(); //Charge tous les hommes politiques

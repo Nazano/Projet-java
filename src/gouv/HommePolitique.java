@@ -5,6 +5,11 @@ import java.util.HashSet;
 import gestion.Event;
 import gestion.Historique;
 
+/**
+ * Représente une personne physique qui va intervenir dans la simulation
+ * @author Antoine
+ *
+ */
 public class HommePolitique {
 	protected String nom, prenom;
 	private int id;

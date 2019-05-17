@@ -4,7 +4,12 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-
+/**
+ * Permet de représenter un événement, sera souvent utilisé avec la classe Historique
+ * @see gestion.Historique
+ * @author Antoine
+ *
+ */
 public class Event {
 	private String description;
 	private SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");

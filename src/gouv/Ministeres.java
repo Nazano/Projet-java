@@ -3,6 +3,7 @@ package gouv;
 import gestion.Event;
 import gestion.Historique;
 
+
 public class Ministeres {
 	
 	private String intitule;

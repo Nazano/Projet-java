@@ -10,7 +10,8 @@ import java.util.Calendar;
 import java.util.Date;
 
 /**
- * Gère l'écoulement du temps et la date
+ * Gère l'écoulement du temps et la date. Il crée un fichier date.txt où il va sauvegarder la date actuelle.
+ * Cela permet à n'importe quelle classe d'avoir accès à la date.
  * @author ajulien
  *
  */
@@ -58,7 +59,7 @@ public interface Time {
 	}
 	
 	/**
-	 * Change la date suivant celle en paramètre
+	 * Change la date contenu dans le fichier date.txt
 	 * @param date Nouvelle date
 	 */
 	default void setDate(Date date) {
@@ -72,8 +73,8 @@ public interface Time {
 	}
 	
 	/**
-	 * Changer la date à partir d'un string
-	 * @param str date
+	 * Change la date contenu dans le fichier date.txt.
+	 * @param Donner une date de au format dd/MM/yyyy
 	 */
 	default void setDate(String str_date) {
 		try {

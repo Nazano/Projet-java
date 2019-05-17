@@ -26,6 +26,12 @@ public class CsvUtils {
 	
 	private static final char DEFAULT_SEPARATOR = ';';
 	
+	/**
+	 * Lit un ficher csv avec comme séparateur ';'
+	 * @param path Chemin vers le fichier csv
+	 * @return Retourne une liste de lignes sous forme d'un tableau de String
+	 * @throws IOException
+	 */
 	public static List<String[]> readCSV(String path) throws IOException {
 		File file = new File(path);
 		FileReader fr = new FileReader(file);
