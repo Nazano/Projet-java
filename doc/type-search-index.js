@@ -1,1 +1,1 @@
-typeSearchIndex = [{"p":"app","l":"ViePolitique"}]
+typeSearchIndex = [{"p":"gestion","l":"CsvUtils"},{"p":"gestion","l":"Event"},{"p":"gouv","l":"Gouvernement"},{"p":"gestion","l":"Historique"},{"p":"gouv","l":"HommePolitique"},{"p":"gouv","l":"Ministeres"},{"p":"gouv","l":"Ministre"},{"p":"gouv","l":"PremierMinistre"},{"p":"gouv","l":"President"},{"p":"gestion","l":"Time"},{"p":"app","l":"ViePolitique"}]
