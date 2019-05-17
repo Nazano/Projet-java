@@ -44,6 +44,15 @@ public class HommePolitique {
 		return id;
 	}
 	
+	
+	public String getNom() {
+		return nom;
+	}
+
+	public String getPrenom() {
+		return prenom;
+	}
+
 	public Historique<Event> getHisto() {
 		return histo;
 	}

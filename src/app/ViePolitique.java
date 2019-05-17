@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -86,6 +87,10 @@ public class ViePolitique implements Time{
 					System.out.println(president);
 				else if(input_options.equals("4"))
 					System.out.println(gouvernement);
+				else if(input_options.equals("5")) {
+					trouverNominations();
+				}
+					
 				
 			}
 			System.out.println("Tapez Entrée pour continuer vers le jour suivant");
@@ -94,6 +99,19 @@ public class ViePolitique implements Time{
 			if(input_quitter.equals("quit"))
 				break;
 		}
+	}
+	
+	/**
+	 * Affiche l'ensemble des nominations pour une peronne demandé
+	 * @throws IOException
+	 */
+	private void trouverNominations() throws IOException {
+		String nom, prenom;
+		System.out.println("Entrez le nom de l'individu");
+		nom = keyboard.nextLine();
+		System.out.println("Entrez le prénom de l'individu");
+		prenom = keyboard.nextLine();
+		System.out.println(listeNomination(nom, prenom));
 	}
 	
 	/**
@@ -133,6 +151,7 @@ public class ViePolitique implements Time{
 		sb.append("\t2. Saut temporel\n");
 		sb.append("\t3. Voir le président\n");
 		sb.append("\t4. Voir le gouvernement\n");
+		sb.append("\t5. Voir nomination pour une personne donnée");
 		sb.append("\"s\" pour quitter le menu et avancer de jour");
 		
 		System.out.println(sb.toString());
@@ -260,6 +279,51 @@ public class ViePolitique implements Time{
 			}		
 			
 		}
+	}
+	
+	/**
+	 * Trouve la liste des nominations associés au nom et prénoms
+	 * @throws IOException 
+	 */
+	private String listeNomination(String nom, String prenom) throws IOException {
+		List<HommePolitique> match = trouverHommeP(nom, prenom);
+		List<String[]> data = CsvUtils.readCSV(path_ministres);
+		StringBuilder nomi = new StringBuilder();
+		nomi.append(match.size());
+		nomi.append(" personnes trouvés\n\n");
+		
+		for (HommePolitique p : match) {
+			nomi.append(p);
+			nomi.append("\n");
+			for(String[] line : data) {
+				if(p.getId() == Integer.valueOf(line[0])){
+					nomi.append("\t");
+					nomi.append(line[1]);
+					nomi.append(" du " + line[2] + " au " + line[3]);
+					nomi.append("\n");
+				}
+			}
+			nomi.append("══════════════════════════════\n");
+		}
+		
+		return nomi.toString();
+	}
+	
+	/**
+	 * Retourne tous les hommes politiques associés au nom et prénom suivant
+	 * @param nom
+	 * @return
+	 */
+	private List<HommePolitique> trouverHommeP(String nom, String prenom){
+		List<HommePolitique> hm = new ArrayList<HommePolitique>(listeHommePolitiques.values());
+		List<HommePolitique> match = new ArrayList<HommePolitique>();
+		
+		for (HommePolitique p : hm) {
+			if(p.getNom().toLowerCase().contains(nom.toLowerCase()) && p.getPrenom().toLowerCase().contains(prenom.toLowerCase())) {
+				match.add(p);
+			}
+		}
+		return match;
 	}
 	
 	public static void main(String[] args) {
