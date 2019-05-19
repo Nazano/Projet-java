@@ -29,10 +29,10 @@ Voici une liste succincte de toutes les fonctionnalités de mon programme:
 J'ai utilisé la [source de donnée](https://www.data.gouv.fr/fr/datasets/liste-alphabetique-des-ministres-de-la-liberation-a-la-veme-republique/) indiqué dans l'énoncé du projet. J'utilise [opencsv](http://opencsv.sourceforge.net/) pour lire les fichiers csv. 
 **Je tiens à faire remarquer** que les données sont de médiocre qualité. 
 
-De plus au fil du temps et des gouvernements les fonctions sont fusionnés, supprimés, renommés. J'ai répertorié l'ensemble des fonctions différentes dans le fichier [differentes_fonctions](src/data/differentes_fonctions) (Pandas utilisé avec commande `unique()`). Cela m'empêche  donc de gérer certaines fonctionnalités (comme, par l'exemple, l'historique d'un ministère). 
+De plus au fil du temps et des gouvernements les fonctions sont fusionnées, supprimées, renommées. J'ai répertorié l'ensemble des fonctions différentes dans le fichier [differentes_fonctions](src/data/differentes_fonctions) (Pandas utilisé avec la commande `unique()`). Cela m'empêche donc de gérer certaines fonctionnalités (comme, par exemple, l'historique d'un ministère). 
 
 ### Traitement des données
-Afin de faciliter l'utilisation des données dans mon application, je les ai traitées, découpées et reformées (j'ai utilisé python avec sa puissante librairie pandas). Mes données suivent le schéma suivant:
+Afin de faciliter l'intégration des données dans mon application, je les ai traitées, découpées et reformées à l'aide de python avec sa puissante librairie Pandas. Mes données suivent le schéma suivant:
 
 ![schéma](schema.PNG)    
 Avec 
@@ -41,7 +41,7 @@ Avec
 - `liste_pm` la liste de tous les premiers ministres.
 Les données se trouvent dans le dossier src/data/.  
 
-Dans le but de garder un déroulement réaliste des événements, j'ai choisi de conserver l'ensemble des données fournies par le gouvernement. Cependant, cela pose plusieurs problèmes notamment au niveau de la gestion de l'historique des différentes entités. De plus il n'est pas possible d'effectuer certaines actions, mais toutes les classes ont les méthodes/attributs nécessaires pour effectuer les traitements demandés.
+Dans le but de garder un déroulement réaliste des événements, j'ai choisi de conserver l'ensemble des données fournies par le gouvernement. Cependant, cela pose plusieurs problèmes notamment au niveau de la gestion de l'historique des différentes entités. De plus il n'est pas possible d'effectuer certaines actions, mais toutes les classes ont les méthodes/attributs nécessaires pour effectuer les traitements demandés dans l'énoncé.
 
 ## Perspectives  
  
